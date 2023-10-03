@@ -1,19 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 // base - targets html tags
+// components - for container, max-width
+// for utilities eg pt, mx, shadow grid-col-3
 @layer base {
   html {
-    //font-family: "Quicksand", sans-serif;
+    //font-family: "Inter", sans-serif;
   }
   h1 {
-    //@apply text-6xl font-bold pb-3;
+    //@apply mb-2 text-6xl font-bold;
   }
   h2 {
-    //@apply text-5xl font-bold pb-3;
+    //@apply mb-1 text-5xl font-bold;
   }
   h3 {
     //@apply text-4xl font-bold pb-3;
@@ -27,4 +29,34 @@
   h6 {
     //@apply text-xl font-bold pb-3;
   }
+  a {
+    //@apply text-blue-500 underline underline-offset-4 transition hover:text-green-500;
+  }
+}
+.btn {
+  //@apply w-64 rounded-full px-5 py-4 hover:opacity-80 hover:transition hover:duration-300;
+}
+
+.btn-primary {
+  //@apply bg-green-600 text-white;
+}
+
+.btn-secondary {
+  //@apply border border-red-400 text-blue-500;
+}
+input,
+select {
+  //@apply mb-2 rounded-lg border  p-2 text-green-700 outline-none placeholder:italic;
+}
+select {
+  //@apply px-10;
+}
+input[type="text"] {
+  //@apply border-green-500;
+}
+input[type="checkbox"] {
+  //@apply p-2 accent-purple-500;
+}
+label {
+  // @apply ml-2 text-sm font-medium text-purple-500;
 }

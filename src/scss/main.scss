@@ -4,9 +4,75 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+//CONFIG FILE = purge, package.json= NODE_ENV=production
+
+// @apply for btn, headline or form
+
 // base - targets html tags
 // components - for container, max-width
 // for utilities eg pt, mx, shadow grid-col-3
+// use space-y-? when margin top or bottom in a div are all the same in parent container
+
+/*
+BTN ELEMENT = + increase per screen size sm, md etc
+primary btn - shadow and transition. secondary no transition or shadow
+inline-block
+px-5
+py-4
+shadow-lg - on primary btn only?
+bg-color
+text-color
+rounded-lg
+text-sm
+uppercase + tracking-widest
+font-semibold
+//
+transition
+transform
+//hover
+hover: bg-color-lighter
+hover:-translate-y-0.5
+//focus
+focus:outline-none
+focus:ring
+focus:ring-offset-2
+focus:ring-indigo-500// same color as btn
+focus-ring-opacity-50
+//active
+active:bg-red-500 - darker than bg-color
+//BTN ON COLORED BACKGROUND
+bg--pink-300
+px-8 py-3 rounded-full bg-white text-pink-600 font-semibold shadow-xl shadow-pink-600/20
+
+CARD
+.card-container
+.card-image
+.card-content-wrapper
+.card-title
+
+IMAGES
+object-center
+sm:h-64
+sm:w-full
+sm:object-cover
+shadow-lg
+
+
+//VIDEO EMBED
+w-full spect-ratio
+
+//image
+h-48 w-full object-cover
+OR
+aspect-square w-full object-cover
+OR
+aspect-[3/1] w-full object-cover
+
+
+RESPONSIVE
+max-w-?-md + mx-auto on container and increase per screen size eg sm:max-w-lg
+
+*/
 @layer base {
   html {
     //font-family: "Inter", sans-serif;
@@ -59,4 +125,15 @@ input[type="checkbox"] {
 }
 label {
   // @apply ml-2 text-sm font-medium text-purple-500;
+}
+@layer components {
+  .btn {
+    @apply inline-block rounded-lg px-5 py-3 text-sm font-semibold uppercase tracking-wider focus:outline-none focus:ring focus:ring-offset-2 sm:text-base;
+  }
+  .btn-primary {
+    @apply bg-indigo-500 text-white hover:bg-indigo-400 focus:ring-indigo-500 focus:ring-opacity-50 active:bg-indigo-600;
+  }
+  .btn-secondary {
+    @apply bg-gray-300 text-gray-800 hover:bg-gray-200 focus:ring-gray-300 focus:ring-opacity-50 active:bg-gray-400;
+  }
 }

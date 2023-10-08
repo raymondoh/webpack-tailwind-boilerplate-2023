@@ -72,10 +72,14 @@ aspect-[3/1] w-full object-cover
 RESPONSIVE
 max-w-?-md + mx-auto on container and increase per screen size eg sm:max-w-lg
 
+//DROPDOWN MENU
 */
 @layer base {
   html {
     //font-family: "Inter", sans-serif;
+  }
+  body {
+    @apply antialiased selection:bg-sky-300 selection:text-white;
   }
   h1 {
     //@apply mb-2 text-6xl font-bold;

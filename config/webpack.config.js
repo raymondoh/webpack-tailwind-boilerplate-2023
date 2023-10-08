@@ -32,7 +32,12 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
       },
     ],
   },
@@ -47,6 +52,12 @@ module.exports = {
       filename: "index.html",
       inject: true,
       hash: true,
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(environment.paths.source, "about.html"),
+      //inject: true,
+      //chunks: ["index"],
+      filename: "about.html",
     }),
     new CopyWebpackPlugin({
       patterns: [

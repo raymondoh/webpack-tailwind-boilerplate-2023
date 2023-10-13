@@ -6,7 +6,7 @@
 
 //CONFIG FILE = purge, package.json= NODE_ENV=production
 
-// @apply for btn, headline or form
+// @apply for btn, headline or form //
 
 // base - targets html tags
 // components - for container, max-width
@@ -72,14 +72,13 @@ aspect-[3/1] w-full object-cover
 RESPONSIVE
 max-w-?-md + mx-auto on container and increase per screen size eg sm:max-w-lg
 
-//DROPDOWN MENU
-*/
+
 @layer base {
   html {
-    //font-family: "Inter", sans-serif;
+    font-family: "Quicksand", sans-serif;
   }
   body {
-    @apply antialiased selection:bg-sky-300 selection:text-white;
+    @apply overscroll-y-none  antialiased selection:bg-sky-300 selection:text-white;
   }
   h1 {
     //@apply mb-2 text-6xl font-bold;
@@ -103,14 +102,30 @@ max-w-?-md + mx-auto on container and increase per screen size eg sm:max-w-lg
     //@apply text-blue-500 underline underline-offset-4 transition hover:text-green-500;
   }
 }
-.btn {
-  //@apply w-64 rounded-full px-5 py-4 hover:opacity-80 hover:transition hover:duration-300;
-}
 
-.btn-primary {
-  //@apply bg-green-600 text-white;
-}
 
+@layer components {
+  .btn {
+    @apply inline-block rounded-lg px-5 py-3 text-sm font-semibold uppercase tracking-wider focus:outline-none focus:ring focus:ring-offset-2 sm:text-base;
+  }
+  .btn-primary {
+    @apply bg-indigo-500 text-white hover:bg-indigo-400 focus:ring-indigo-500 focus:ring-opacity-50 active:bg-indigo-600;
+  }
+  .btn-secondary {
+    @apply bg-gray-300 text-gray-800 hover:bg-gray-200 focus:ring-gray-300 focus:ring-opacity-50 active:bg-gray-400;
+  }
+}
+@layer components {
+  .btn {
+    //@apply inline-block rounded-lg px-5 py-3 text-sm font-semibold uppercase tracking-wider focus:outline-none focus:ring focus:ring-offset-2 sm:text-base;
+  }
+  .btn-primary {
+    //@apply bg-indigo-500 text-white hover:bg-indigo-400 focus:ring-indigo-500 focus:ring-opacity-50 active:bg-indigo-600;
+  }
+  .btn-secondary {
+    //@apply bg-gray-300 text-gray-800 hover:bg-gray-200 focus:ring-gray-300 focus:ring-opacity-50 active:bg-gray-400;
+  }
+}
 .btn-secondary {
   //@apply border border-red-400 text-blue-500;
 }
@@ -130,14 +145,106 @@ input[type="checkbox"] {
 label {
   // @apply ml-2 text-sm font-medium text-purple-500;
 }
-@layer components {
-  .btn {
-    @apply inline-block rounded-lg px-5 py-3 text-sm font-semibold uppercase tracking-wider focus:outline-none focus:ring focus:ring-offset-2 sm:text-base;
+/* HAMBURGER MENU */
+
+/* The container for the three lines */
+.hamburger {
+  cursor: pointer; /* Makes it clear you can interact with this element */
+  width: 24px; /* Width of the hamburger */
+  height: 24px; /* Height of the hamburger */
+  transition: all 0.25s; /* Smooth transition for all changes */
+  position: relative; /* Sets the position context for the three lines */
+}
+
+/* The top, middle, and bottom lines of the hamburger */
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  background: #fff !important; /* White background color */
+  content: ""; /* Necessary for the pseudo-elements */
+  position: absolute; /* Absolute positioning inside the .hamburger */
+  width: 24px; /* Full width of the container */
+  height: 3px; /* Height of a single line */
+  top: 0; /* Top position for the top line */
+  left: 0; /* Starts at the leftmost part of the container */
+
+  transform: rotate(0); /* Initial rotation set to 0 */
+  transition: all 0.5s; /* Smooth transition for all changes */
+}
+
+/* Positioning for the middle and bottom lines */
+.hamburger-middle {
+  transform: translateY(7px); /* Move it down by 7px from the top line */
+}
+
+.hamburger-bottom {
+  transform: translateY(14px); /* Move it down by 14px from the top line */
+  background: #000; /* Black background color */
+}
+
+/* Class for when the hamburger is clicked */
+.open {
+  /* This class will be toggled on/off when clicking the hamburger */
+
+  /* Transformations for the 'open' state */
+  /* These transformations make the lines change into a 'cross' */
+
+  /* General styling for the open state */
+  /* If you want any additional styles, add them here */
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px); /* Rotate to form part of the 'X' */
+  background-color: #fff; /* Change color to white */
+}
+
+.open .hamburger-middle {
+  display: none; /* Hide the middle line */
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px); /* Rotate to form other part of the 'X' */
+  background-color: #fff; /* Change color to white */
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+//style="background-image: url('./images/logo-1.svg'); background-size: cover;  background-position: center;"
+
+// footer {
+//   position: relative;
+//   background-color: #333;
+//   color: #fff;
+// }
+
+// footer::before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   z-index: -1;
+//   background-image: url("../images/logo-1.svg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
+@layer base {
+  select {
+    @apply form-input w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
   }
-  .btn-primary {
-    @apply bg-indigo-500 text-white hover:bg-indigo-400 focus:ring-indigo-500 focus:ring-opacity-50 active:bg-indigo-600;
+  [type="checkbox"] {
+    @apply form-checkbox h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500;
   }
-  .btn-secondary {
-    @apply bg-gray-300 text-gray-800 hover:bg-gray-200 focus:ring-gray-300 focus:ring-opacity-50 active:bg-gray-400;
+  [type="input"],
+  [type="radio"] {
+    @apply form-input h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500;
+  }
+  [type="text"],
+  [type="email"],
+  [type="password"] {
+    @apply form-input w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
   }
 }

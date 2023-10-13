@@ -54,10 +54,28 @@ module.exports = {
       hash: true,
     }),
     new HtmlWebpackPlugin({
+      template: path.resolve(environment.paths.source, "style-guide.html"),
+      //inject: true,
+      //chunks: ["index"],
+      filename: "style-guide.html",
+    }),
+    new HtmlWebpackPlugin({
       template: path.resolve(environment.paths.source, "about.html"),
       //inject: true,
       //chunks: ["index"],
       filename: "about.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(environment.paths.source, "services.html"),
+      //inject: true,
+      //chunks: ["index"],
+      filename: "services.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(environment.paths.source, "service-1.html"),
+      //inject: true,
+      //chunks: ["index"],
+      filename: "service-1.html",
     }),
     new CopyWebpackPlugin({
       patterns: [

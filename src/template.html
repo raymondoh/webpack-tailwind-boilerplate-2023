@@ -5,50 +5,474 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body class="">
-    <h1 class="text-center text-4xl font-bold text-blue-500">Hello world!</h1>
-    <div class="mt-4 space-x-1 space-x-1 sm:mt-6">
-      <a
-        class="btn btn-primary transform shadow-lg transition hover:-translate-y-0.5"
-        href="#"
-        >Book your escape</a
+  <body class="antialiased selection:bg-sky-300 selection:text-white">
+    
+    <!-- Main Header Container -->
+    <header
+      class="sticky top-0 z-50 h-24 w-full bg-gray-800 transition-all duration-300 ease-in-out shadow-lg"
+    >
+      <nav
+        role="navigation"
+        id="navbar"
+        class="h-full bg-gray-800 px-2 transition-all duration-300 ease-in-out"
       >
-      <a class="btn btn-secondary" href="#">Learn more</a>
-    </div>
-    <!-- INPUTS -->
-    <div class="grid min-h-screen place-items-center">
-      <h1>inputs</h1>
-      <div class="mx-auto w-full max-w-md px-8">
-        <form class="space-y-10">
-          <div>
-            <label
-              for="first-name"
-              class="ml-4 block text-sm font-medium leading-6 text-slate-900"
-              >First name</label
-            >
-            <input
-              type="text"
-              id="first-name"
-              name="first-name"
-              class="mt-1 w-full rounded-full bg-slate-100 px-4 py-2 text-sm leading-6 text-slate-700 focus:outline-violet-500"
-            />
+        <div class="flex h-full items-center justify-between px-4">
+          <!-- Logos -->
+          <div class="flex space-x-2">
+            <!-- Main Logo -->
+            <a href="/">
+              <img
+                id="main-logo"
+                class="h-10 w-10 text-white transition-all duration-300 ease-in-out"
+                src="./images/logo-1.svg"
+                alt="Main Logo"
+              />
+            </a>
+
+            <!-- Secondary Logo (Hidden initially) -->
+            <a href="/">
+              <img
+                id="secondary-logo"
+                class="hidden h-8 w-8 transition-all duration-300 ease-in-out"
+                src="./images/logo-2.svg"
+                alt="Secondary Logo"
+              />
+            </a>
+            <div class="text-white">Company slogan here</div>
           </div>
-          <!--  -->
-          <div>
-            <label
-              for="last-name"
-              class="ml-4 block text-sm font-medium leading-6 text-slate-900"
-              >Last name</label
-            >
-            <input
-              type="text"
-              id="last-name"
-              name="last-name"
-              class="mt-1 w-full rounded-full bg-slate-100 px-4 py-2 text-sm leading-6 text-slate-700 focus:outline-violet-500"
-            />
+
+          <!-- Desktop Navigation Links -->
+          <div
+            id="nav-links"
+            class="relative hidden grid-flow-col items-center gap-4 md:grid"
+          >
+            <ul class="flex items-center justify-between space-x-6 uppercase">
+              <li class="group relative">
+                <a href="/" class="text-white">Home</a>
+                <span
+                  class="absolute -bottom-9 left-0 h-0 w-full bg-teal-500 transition-all duration-100 ease-in-out group-hover:h-[3px]"
+                ></span>
+              </li>
+              <li class="group relative">
+                <a href="/about.html" class="text-white">About</a>
+                <span
+                  class="absolute -bottom-9 left-0 h-0 w-full bg-teal-500 transition-all duration-100 ease-in-out group-hover:h-[3px]"
+                ></span>
+              </li>
+              <li id="desktop-services-menu" class="group relative">
+                <a href="services.html" class="flex items-center text-white">
+                  Services
+                  <span class="icon-class ml-2"
+                    ><i class="fas fa-angle-down"></i
+                  ></span>
+                </a>
+                <span
+                  class="absolute -bottom-9 left-0 h-0 w-full bg-teal-500 transition-all duration-100 ease-in-out group-hover:h-[3px]"
+                ></span>
+                <ul
+                  id="desktop-services-submenu"
+                  class="absolute mt-2 hidden w-48 rounded-md bg-red-500 shadow-lg ring-1 ring-black ring-opacity-5"
+                >
+                  <li class="py-1">
+                    <a
+                      href="service-1.html"
+                      class="block px-4 py-2 text-white hover:bg-red-400"
+                      >Sub-service 1</a
+                    >
+                  </li>
+                  <li class="py-1">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-white hover:bg-red-400"
+                      >Sub-service 2</a
+                    >
+                  </li>
+                  <li class="py-1">
+                    <a
+                      href="#"
+                      class="block px-4 py-2 text-white hover:bg-red-400"
+                      >Sub-service 3</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <!-- Button -->
+
+              <li class="-ml-44">
+                <!-- Added extra left margin -->
+                <a
+                  href="contact.html"
+                  class="nav-link text-whitehover:bg-blue-700 ml-5 rounded-full bg-teal-600 px-4 py-3"
+                >
+                  Contact Us
+                </a>
+              </li>
+            </ul>
           </div>
-        </form>
+
+          <!-- Mobile Navigation -->
+          <div id="hamburger" class="md:hidden">
+            <!-- Mobile Menu Toggle Button -->
+            <button class="hamburger z-100" aria-label="menu">
+              <span class="hamburger-top"></span>
+              <span class="hamburger-middle"></span>
+              <span class="hamburger-bottom"></span>
+            </button>
+          </div>
+        </div>
+        <!-- /Container -->
+      </nav>
+      <!-- /Navbar -->
+      <!-- Mobile Menu (hidden initially) MUST BE PLACE INSIDE HEADER BUT OUTSIDE OF NAV -->
+      <div id="mobile-menu" class="hidden h-screen bg-gray-800 pl-8 md:hidden">
+        <ul class="space-y-6 pt-16">
+          <li>
+            <a href="/" class="text-2xl leading-6 text-white">Home</a>
+          </li>
+          <li>
+            <a href="about.html" class="text-2xl leading-6 text-white">About</a>
+          </li>
+          <li id="mobile-services-menu" class="relative">
+            <a
+              href="services.html"
+              class="nav-link flex items-center text-2xl leading-6 text-white"
+              >Services
+              <span class="icon-class"
+                ><i class="fas fa-angle-down ml-1"></i></span
+            ></a>
+            <ul
+              id="mobile-services-submenu"
+              class="absolute hidden space-y-2 bg-red-500"
+            >
+              <li>
+                <a href="service-1.html" class="text-lg leading-6 text-white"
+                  >Sub-service 1</a
+                >
+              </li>
+              <li>
+                <a href="about.html" class="text-lg leading-6 text-white"
+                  >Sub-service 2</a
+                >
+              </li>
+              <li>
+                <a href="about.html" class="text-lg leading-6 text-white"
+                  >Sub-service 3</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
+      <!--  -->
+    </header>
+    <!-- MAIN -->
+    <main class="">
+     
+        <!-- Hero -->
+        <div class="bg-gray-600">
+          <div class="bg-gradient-to-b from-gray-600/[.15] via-transparent">
+            <div
+              class="mx-auto max-w-[85rem] space-y-8 px-4 py-24 sm:px-6 lg:px-8"
+            >
+              <!-- Announcement Banner -->
+              <div class="flex justify-center">
+                <a
+                  class="group inline-block rounded-full border border-white/[.05] bg-white/[.05] p-1 pl-4 shadow-md hover:bg-white/[.1]"
+                  href="../figma.html"
+                >
+                  <p class="mr-2 inline-block text-sm text-white">
+                    Preline UI Figma is live.
+                  </p>
+                  <span
+                    class="inline-flex items-center justify-center gap-x-2 rounded-full bg-white/[.075] px-3 py-2 text-sm font-semibold text-white group-hover:bg-white/[.1]"
+                  >
+                    <svg
+                      class="h-2.5 w-2.5"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                    >
+                      <path
+                        d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <!-- End Announcement Banner -->
+
+              <!-- Title -->
+              <div class="mx-auto max-w-3xl text-center">
+                <h1
+                  class="block text-4xl font-medium text-white sm:text-5xl md:text-6xl lg:text-7xl"
+                >
+                  h1 heading goes here in bold?
+                </h1>
+              </div>
+              <!-- End Title -->
+
+              <div class="mx-auto max-w-3xl text-center">
+                <p class="text-lg text-white">
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aliquam, nemo impedit excepturi laborum vitae.
+                </p>
+              </div>
+
+              <!-- Buttons -->
+              <div class="text-center">
+                <a
+                  class="inline-flex items-center justify-center gap-x-3 rounded-full border border-transparent  bg-teal-700 px-6 py-3 text-center text-sm font-medium text-white shadow-lg shadow-transparent hover:shadow-teal-700/50 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
+                  href="#"
+                >
+                  Get started
+                  <svg
+                    class="h-2.5 w-2.5"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <!-- End Buttons -->
+            </div>
+          </div>
+        </div>
+        <!-- End Hero -->
+      </section>
+      <!-- section -->
+
+<section class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-white bg-blend-multiply">
+  <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">H1 heading goes here</h1>
+      <p class="mb-8 text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-48">sub text goes right here.</p>
+      <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+          <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 dark:focus:ring-teal-900">
+              Get started
+              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+              </svg>
+          </a>
+          <a href="#" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
+              Learn more
+          </a>  
+      </div>
+  </div>
+</section>
+<section>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut numquam voluptatem soluta excepturi enim pariatur, nihil corporis nemo odio aspernatur, itaque iste aliquid tempora veniam quibusdam. Distinctio provident molestias ratione possimus. Minus velit ab accusantium corporis magni quis quidem provident corrupti a dolorem maiores nihil, culpa sunt voluptas. Odio ipsam tempore deleniti saepe inventore ipsum nulla magni quisquam doloremque id iusto praesentium molestias deserunt, culpa esse maxime quibusdam! Esse numquam, hic, recusandae reiciendis eveniet sed perspiciatis at et voluptatem eligendi ratione autem fugit corporis alias. Fugiat beatae accusantium dicta, quasi error reprehenderit quas et vel! Eos consequuntur eligendi vitae nemo.</section>
+     
+      
+    </main>
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white relative">
+      <div class="container mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:pt-20">
+        <!-- Grid -->
+        <div class="grid grid-cols-2 space-y-6 md:grid-cols-4 lg:grid-cols-5 md:space-y-0">
+              <!-- Brand -->
+          <div class="col-span-full lg:col-span-1">
+            <a class="brand flex space-x-3 text-xl font-semibold text-white" href="/" aria-label="Brand">
+              <img src="./images/logo-1.svg" alt="Shield Solicitors logo" class="brand-logo h-8 w-8" />
+              <span class="brand-name">Company Name</span>
+            </a>
+          </div>
+          <!-- Column 1 -->
+          <nav class="col-span-1" aria-label="Product Menu">
+            <h4 class="menu-title font-semibold text-gray-100">Product</h4>
+            <ul class="menu-list mt-3 space-y-3">
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Pricing</a></li>
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Changelog</a></li>
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Docs</a></li>
+            </ul>
+          </nav>
+           <!-- Column 2 -->
+          <nav class="col-span-1" aria-label="Product Menu">
+            <h4 class="menu-title font-semibold text-gray-100">Product</h4>
+            <ul class="menu-list mt-3 space-y-3">
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Pricing</a></li>
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Changelog</a></li>
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Docs</a></li>
+            </ul>
+          </nav>
+             <!-- Column 3 -->
+          <nav class="col-span-1" aria-label="Product Menu">
+            <h4 class="menu-title font-semibold text-gray-100">Product</h4>
+            <ul class="menu-list mt-3 space-y-3">
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Pricing</a></li>
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Changelog</a></li>
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Docs</a></li>
+            </ul>
+          </nav>
+             <!-- Column 4 -->
+          <nav class="col-span-1" aria-label="Company Menu">
+            <h4 class="menu-title font-semibold text-gray-100">Company</h4>
+            <ul class="menu-list mt-3 space-y-3">
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">About us</a></li>
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Blog</a></li>
+              <li>
+                <a class="menu-link text-gray-400 hover:text-gray-200" href="#">Careers</a>
+                <span class="hiring-badge ml-1 inline rounded-md bg-teal-700 px-2 py-1 text-xs text-white">We're hiring</span>
+              </li>
+              <li><a class="menu-link text-gray-400 hover:text-gray-200" href="#">Customers</a></li>
+            </ul>
+          </nav>
+          <!-- Newsletter -->
+          <div class="col-span-2  newsletter">
+            <h4 class="newsletter-title font-semibold text-gray-100">Stay up to date</h4>
+            <form class="newsletter-form">
+              <div class="input-wrapper mt-4 flex flex-col items-center gap-2 rounded-md bg-white p-2 sm:flex-row sm:gap-3">
+                <input type="email" id="email-input" name="email" class="input-field block w-full rounded-md border-transparent px-4 py-3 shadow-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500" placeholder="Enter your email" aria-label="Enter your email to subscribe">
+                <button class="subscribe-button inline-flex w-full items-center justify-center gap-x-3 whitespace-nowrap rounded-md border border-transparent bg-teal-600 px-4 py-3 text-center font-medium text-white transition hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 focus:ring-offset-white sm:w-auto" type="submit" aria-label="Subscribe">
+                  Subscribe
+                </button>
+              </div>
+              <p class="newsletter-description mt-3 text-sm text-gray-400">
+                New UI kits or big discounts. Never spam.
+              </p>
+            </form>
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- End Grid -->
+    <!-- Social icons section remains the same -->
+    <!-- ... -->
+    <div
+    class="mt-5 grid gap-y-2 sm:mt-12 sm:flex sm:items-center sm:justify-between sm:gap-y-0"
+  >
+    <div class="flex items-center justify-between">
+      <p class="text-sm text-white">
+        © 2022 Company name. All rights reserved.
+      </p>
     </div>
+    <!-- End Col -->
+
+    <!-- Social Brands -->
+    <div>
+      <a
+        class="inline-flex h-10 w-10 items-center justify-center gap-x-3.5 rounded-md text-center text-gray-200 transition hover:bg-white/[.1] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900"
+        href="#"
+      >
+        <svg
+          class="h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"
+          />
+        </svg>
+      </a>
+      <a
+        class="inline-flex h-10 w-10 items-center justify-center gap-x-3.5 rounded-md text-center text-gray-200 transition hover:bg-white/[.1] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900"
+        href="#"
+      >
+        <svg
+          class="h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"
+          />
+        </svg>
+      </a>
+      <a
+        class="inline-flex h-10 w-10 items-center justify-center gap-x-3.5 rounded-md text-center text-gray-200 transition hover:bg-white/[.1] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900"
+        href="#"
+      >
+        <svg
+          class="h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+          />
+        </svg>
+      </a>
+      <a
+        class="inline-flex h-10 w-10 items-center justify-center gap-x-3.5 rounded-md text-center text-gray-200 transition hover:bg-white/[.1] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900"
+        href="#"
+      >
+        <svg
+          class="h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
+          />
+        </svg>
+      </a>
+      <a
+        class="inline-flex h-10 w-10 items-center justify-center gap-x-3.5 rounded-md text-center text-gray-200 transition hover:bg-white/[.1] focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-gray-900"
+        href="#"
+      >
+        <svg
+          class="h-4 w-4"
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z"
+          />
+        </svg>
+      </a>
+    </div>
+    <!-- End Social Brands -->
+      </div>
+      <!-- End Container -->
+      <!-- svg -->
+      <!-- <div class="absolute -bottom-10 -right-20 opacity-10 scale-90">
+        <img src="./images/logo-1.svg" alt="Background Logo" class="h-[200px] w-[200px]"/>
+      </div> -->
+    </footer>
+    
+
+
+    <!-- SCROLL-TO-TOP BTN -->
+    <button
+      id="scrollToTop"
+      class="fixed bottom-10 right-10 z-20 hidden rounded-full bg-teal-500 p-4 text-white opacity-90"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-6 w-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"
+        />
+      </svg>
+    </button>
   </body>
 </html>

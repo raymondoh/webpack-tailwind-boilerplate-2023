@@ -8,164 +8,92 @@
   <body class="antialiased selection:bg-sky-300 selection:text-white">
     
     <!-- Main Header Container -->
-    <header
-      class="sticky top-0 z-50 h-24 w-full bg-gray-800 transition-all duration-300 ease-in-out shadow-lg"
-    >
-      <nav
-        role="navigation"
-        id="navbar"
-        class="h-full bg-gray-800 px-2 transition-all duration-300 ease-in-out"
-      >
-        <div class="flex h-full items-center justify-between px-4">
-          <!-- Logos -->
-          <div class="flex space-x-2">
-            <!-- Main Logo -->
-            <a href="/">
-              <img
-                id="main-logo"
-                class="h-10 w-10 text-white transition-all duration-300 ease-in-out"
-                src="./images/logo-1.svg"
-                alt="Main Logo"
-              />
-            </a>
-
-            <!-- Secondary Logo (Hidden initially) -->
-            <a href="/">
-              <img
-                id="secondary-logo"
-                class="hidden h-8 w-8 transition-all duration-300 ease-in-out"
-                src="./images/logo-2.svg"
-                alt="Secondary Logo"
-              />
-            </a>
-            <div class="text-white">Company slogan here</div>
-          </div>
-
-          <!-- Desktop Navigation Links -->
-          <div
-            id="nav-links"
-            class="relative hidden grid-flow-col items-center gap-4 md:grid"
-          >
-            <ul class="flex items-center justify-between space-x-6 uppercase">
-              <li class="group relative">
-                <a href="/" class="text-white">Home</a>
-                <span
-                  class="absolute -bottom-9 left-0 h-0 w-full bg-teal-500 transition-all duration-100 ease-in-out group-hover:h-[3px]"
-                ></span>
-              </li>
-              <li class="group relative">
-                <a href="/about.html" class="text-white">About</a>
-                <span
-                  class="absolute -bottom-9 left-0 h-0 w-full bg-teal-500 transition-all duration-100 ease-in-out group-hover:h-[3px]"
-                ></span>
-              </li>
-              <li id="desktop-services-menu" class="group relative">
-                <a href="services.html" class="flex items-center text-white">
-                  Services
-                  <span class="icon-class ml-2"
-                    ><i class="fas fa-angle-down"></i
-                  ></span>
+    <body class="antialiased selection:bg-sky-300 selection:text-white bg-white">
+  
+      <header class="sticky z-50 top-0 bg-gray-800 text-white md:pr-14 md:pt-5 md:pb-6">
+        <div class="flex justify-between items-center">
+          <!-- Logo and Desktop Navigation -->
+          <div class="flex items-end">
+            <div class="p-4">
+              <span class="text-lg font-semibold">
+                <a href="/">
+                  <img src="./images/logo-1.svg" alt="logo" class="text-white h-10 md:w-32">
                 </a>
-                <span
-                  class="absolute -bottom-9 left-0 h-0 w-full bg-teal-500 transition-all duration-100 ease-in-out group-hover:h-[3px]"
-                ></span>
-                <ul
-                  id="desktop-services-submenu"
-                  class="absolute mt-2 hidden w-48 rounded-md bg-red-500 shadow-lg ring-1 ring-black ring-opacity-5"
-                >
-                  <li class="py-1">
-                    <a
-                      href="service-1.html"
-                      class="block px-4 py-2 text-white hover:bg-red-400"
-                      >Sub-service 1</a
-                    >
-                  </li>
-                  <li class="py-1">
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-white hover:bg-red-400"
-                      >Sub-service 2</a
-                    >
-                  </li>
-                  <li class="py-1">
-                    <a
-                      href="#"
-                      class="block px-4 py-2 text-white hover:bg-red-400"
-                      >Sub-service 3</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <!-- Button -->
-
-              <li class="-ml-44">
-                <!-- Added extra left margin -->
-                <a
-                  href="contact.html"
-                  class="nav-link text-whitehover:bg-blue-700 ml-5 rounded-full bg-teal-600 px-4 py-3"
-                >
-                  Contact Us
-                </a>
-              </li>
-            </ul>
+              </span>
+            </div>
+    
+            <!-- Desktop Navigation -->
+            <nav id="desktop-nav" class="hidden md:flex flex-col justify-center" aria-label="Desktop navigation">
+              <div class="text-sm mb-1 p-4">
+                Slogan goes here
+              </div>
+              <ul class="flex uppercase">
+                <li><a href="/" class="p-4 text-white hover:text-green-500" data-route="home">Home</a></li>
+                <li><a href="about.html" class="p-4 text-white hover:text-green-500" data-route="about">About</a></li>
+                <li class="relative group">
+                  <a href="services.html" class="p-4 text-white hover:text-green-500" aria-haspopup="true" aria-expanded="false">Services</a>
+                  <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white text-black group-hover:block" role="menu">
+                    <li><a href="service-1.html" class="block p-2 text-white hover:text-green-500" tabindex="0" role="menuitem">Sub link 1</a></li>
+                    <li><a href="#" class="block p-2 text-white hover:text-green-500" tabindex="0" role="menuitem">Sub link 2</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            
           </div>
-
-          <!-- Mobile Navigation -->
-          <div id="hamburger" class="md:hidden">
-            <!-- Mobile Menu Toggle Button -->
-            <button class="hamburger z-100" aria-label="menu">
+    
+          <!-- Container for mobile navigation toggle -->
+          <div id="mobile-nav-container" class="flex items-center relative mr-5">
+            <button id="menu-toggle" class="p-4 md:hidden absolute right-0 top-1/2 transform -translate-y-1/2">
               <span class="hamburger-top"></span>
               <span class="hamburger-middle"></span>
               <span class="hamburger-bottom"></span>
             </button>
           </div>
+    
+            <!-- Desktop Call to Action -->
+            <button class="hidden p-4 h-16 w-44 bg-teal-500 rounded md:block self-auto">
+              Call to Action
+            </button>
         </div>
-        <!-- /Container -->
-      </nav>
-      <!-- /Navbar -->
-      <!-- Mobile Menu (hidden initially) MUST BE PLACE INSIDE HEADER BUT OUTSIDE OF NAV -->
-      <div id="mobile-menu" class="hidden h-screen bg-gray-800 pl-8 md:hidden">
-        <ul class="space-y-6 pt-16">
-          <li>
-            <a href="/" class="text-2xl leading-6 text-white">Home</a>
-          </li>
-          <li>
-            <a href="about.html" class="text-2xl leading-6 text-white">About</a>
-          </li>
-          <li id="mobile-services-menu" class="relative">
-            <a
-              href="services.html"
-              class="nav-link flex items-center text-2xl leading-6 text-white"
-              >Services
-              <span class="icon-class"
-                ><i class="fas fa-angle-down ml-1"></i></span
-            ></a>
-            <ul
-              id="mobile-services-submenu"
-              class="absolute hidden space-y-2 bg-red-500"
-            >
-              <li>
-                <a href="service-1.html" class="text-lg leading-6 text-white"
-                  >Sub-service 1</a
-                >
-              </li>
-              <li>
-                <a href="about.html" class="text-lg leading-6 text-white"
-                  >Sub-service 2</a
-                >
-              </li>
-              <li>
-                <a href="about.html" class="text-lg leading-6 text-white"
-                  >Sub-service 3</a
-                >
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <!--  -->
-    </header>
+        </div>
+    
+        <!-- Mobile Navigation Links -->
+        <nav id="mobile-nav" class="md:hidden z-20" aria-label="Mobile navigation">
+          <ul id="menu" class="hidden space-y-4 h-screen bg-gray-800">
+            <li class="slide-up-links"><a href="/" class="animate-slide-up-linksblock p-4 hover:text-red-500" data-route="home">Home</a></li>
+            <li class="slide-up-links"><a href="about.html" class="block p-4 hover:text-red-500" data-route="about">About</a></li>
+            <li class="relative group slide-up-links">
+              <a href="services.html" class="block p-4" aria-haspopup="true" aria-expanded="false">Services</a>
+              <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white text-black group-hover:block">
+                <li><a href="service-1.html" class="block p-2 hover:text-red-500">Sub link 1</a></li>
+                <li><a href="#" class="block p-2 hover:text-red-500">Sub link 2</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </header>
     <!-- MAIN -->
+    <div class="navbar bg-base-100">
+      <div class="navbar-start">
+        <div class="dropdown">
+          <label tabindex="0" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+          </label>
+          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+            <li><a>Item 1</a></li>
+            <li>
+              <a>Parent</a>
+              <ul class="p-2">
+                <li><a>Submenu 1</a></li>
+                <li><a>Submenu 2</a></li>
+              </ul>
+            </li>
+            <li><a>Item 3</a></li>
+          </ul>
+        </div>
+        <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+      </div>
     <main class="">
      
         <!-- Hero -->
@@ -251,6 +179,15 @@
         <!-- End Hero -->
       </section>
       <!-- section -->
+
+
+      <!-- MAIN -->
+      <main>
+        <p class="text-4xl text-bold text-slate-500">Homepage</p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet soluta quis, iure doloribus numquam temporibus incidunt. Nesciunt error eos quod illum soluta consequuntur maxime, eum ut fugiat in exercitationem. Ipsa unde rerum veritatis reprehenderit facere nihil nisi provident cupiditate, quia tempore deserunt! Consectetur voluptas velit cum exercitationem, maxime atque mollitia accusamus, eos pariatur officiis nobis error neque ipsam! Fugit odio consectetur accusantium! Iusto blanditiis possimus itaque. Corporis perferendis praesentium, nulla amet accusamus, distinctio molestiae illum in tempore voluptas saepe nihil, ex eum corrupti facilis temporibus aliquam? Impedit maxime quidem pariatur dicta molestias optio quaerat in eveniet alias assumenda, similique delectus ullam aut, mollitia odio eaque. Impedit modi quaerat error neque ipsum praesentium. Accusantium perferendis minima officia earum. Facere libero quos delectus tempora, hic quidem corrupti suscipit assumenda aliquid deserunt laboriosam fugiat minima impedit molestias! Commodi harum numquam optio et, quo consectetur minus unde voluptatum maiores accusantium nemo nesciunt placeat voluptatem. Pariatur deleniti explicabo eum error voluptate id sapiente dolor eaque sed illum similique nulla laboriosam quisquam soluta accusantium distinctio asperiores eveniet aspernatur rerum magni perferendis molestias eius, blanditiis deserunt. Dolorem labore incidunt natus, quod sequi ab quisquam nam, esse corrupti ex officia eum asperiores iure provident maiores, ratione repudiandae? Eum?
+        </p>
+      </main>
 
 <section class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-white bg-blend-multiply">
   <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">

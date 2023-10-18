@@ -145,70 +145,13 @@ input[type="checkbox"] {
 label {
   // @apply ml-2 text-sm font-medium text-purple-500;
 }
-/* HAMBURGER MENU */
 
-/* The container for the three lines */
-.hamburger {
-  cursor: pointer; /* Makes it clear you can interact with this element */
-  width: 24px; /* Width of the hamburger */
-  height: 24px; /* Height of the hamburger */
-  transition: all 0.25s; /* Smooth transition for all changes */
-  position: relative; /* Sets the position context for the three lines */
-}
 
-/* The top, middle, and bottom lines of the hamburger */
-.hamburger-top,
-.hamburger-middle,
-.hamburger-bottom {
-  background: #fff !important; /* White background color */
-  content: ""; /* Necessary for the pseudo-elements */
-  position: absolute; /* Absolute positioning inside the .hamburger */
-  width: 24px; /* Full width of the container */
-  height: 3px; /* Height of a single line */
-  top: 0; /* Top position for the top line */
-  left: 0; /* Starts at the leftmost part of the container */
 
-  transform: rotate(0); /* Initial rotation set to 0 */
-  transition: all 0.5s; /* Smooth transition for all changes */
-}
 
-/* Positioning for the middle and bottom lines */
-.hamburger-middle {
-  transform: translateY(7px); /* Move it down by 7px from the top line */
-}
 
-.hamburger-bottom {
-  transform: translateY(14px); /* Move it down by 14px from the top line */
-  background: #000; /* Black background color */
-}
 
-/* Class for when the hamburger is clicked */
-.open {
-  /* This class will be toggled on/off when clicking the hamburger */
 
-  /* Transformations for the 'open' state */
-  /* These transformations make the lines change into a 'cross' */
-
-  /* General styling for the open state */
-  /* If you want any additional styles, add them here */
-}
-
-.open .hamburger-top {
-  transform: rotate(45deg) translateY(6px) translateX(6px); /* Rotate to form part of the 'X' */
-  background-color: #fff; /* Change color to white */
-}
-
-.open .hamburger-middle {
-  display: none; /* Hide the middle line */
-}
-
-.open .hamburger-bottom {
-  transform: rotate(-45deg) translateY(6px) translateX(-6px); /* Rotate to form other part of the 'X' */
-  background-color: #fff; /* Change color to white */
-}
-.backface-hidden {
-  backface-visibility: hidden;
-}
 
 //style="background-image: url('./images/logo-1.svg'); background-size: cover;  background-position: center;"
 
@@ -248,3 +191,119 @@ label {
     @apply form-input w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
   }
 }
+
+/* HAMBURGER MENU */
+#hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s ease;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  background: #fff !important;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  left: 0;
+  transform: rotate(0);
+  transition: all 0.5s ease;
+}
+
+.hamburger-top {
+  top: 4px; /* Adjusted position */
+}
+
+.hamburger-middle {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger-bottom {
+  bottom: 4px; /* Adjusted position */
+}
+
+// /* TOGGLE STYLES WHEN THE HAMBURGER MENU IS OPEN  */
+.open .hamburger-top {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+.open .hamburger-middle {
+  opacity: 0;
+}
+.open .hamburger-bottom {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+// /* HOVER & ACTIVE STATE  */
+.active {
+  color: pink; /* Change to whatever color you'd like */
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+// .hover {
+//   color: green !important;
+// }
+
+// /* SLIDE DOWN ANIMATION  */
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+    background-color: transparent;
+  }
+  100% {
+    transform: translateY(0);
+    background-color: #1f2937;
+    //background-color: red;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.slide-down {
+  animation: slide-down 0.5s ease-in-out forwards;
+}
+
+.slide-up {
+  animation: slide-up 0.5s ease-in-out forwards;
+}
+#mobile-nav ul {
+  @apply duration-200 ease-in-out;
+  transition-property: background-color;
+}
+
+// /* SLIDE UP LINKS  */
+@keyframes slide-up-links {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.animate-slide-up-links {
+  animation: slide-up-links 0.9s ease-in-out forwards;
+}
+#mobile-nav ul li {
+  animation: slide-up-links 0.9s ease-in-out forwards;
+}
+// .backface-hidden {
+//   backface-visibility: hidden;
+// }

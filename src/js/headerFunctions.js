@@ -36,62 +36,64 @@ const setActiveLink = (navId) => {
 };
 
 // Function 2
-const handleSubMenuAccessibility = () => {
-  let timeout;
-
+const handleDesktopSubMenuAccessibility = () => {
   const desktopNav = document.getElementById("desktop-nav");
-  const mobileNav = document.getElementById("mobile-nav");
+  const subMenus = desktopNav.querySelectorAll("li.relative");
 
-  [desktopNav, mobileNav].forEach((nav) => {
-    if (nav) {
-      const subMenus = nav.querySelectorAll("li.relative");
+  subMenus.forEach((subMenu) => {
+    const anchor = subMenu.querySelector('a[aria-haspopup="true"]');
+    const subMenuList = subMenu.querySelector("ul");
+    const subMenuItems = subMenuList.querySelectorAll("li a"); // Assuming 'a' tags within li
 
-      subMenus.forEach((subMenu) => {
-        const anchor = subMenu.querySelector('a[aria-haspopup="true"]');
-        const subMenuList = subMenu.querySelector("ul");
-        const subMenuItems = subMenuList.querySelectorAll("li");
+    anchor.addEventListener("focus", () => {
+      subMenuList.classList.remove("hidden");
+      anchor.setAttribute("aria-expanded", "true");
+    });
 
-        anchor.addEventListener("focus", () => {
-          clearTimeout(timeout); // Clear any existing timeout
-          subMenuList.classList.remove("hidden");
-          anchor.setAttribute("aria-expanded", "true");
-        });
-
-        // Show submenu on mouseenter
-        subMenu.addEventListener("mouseenter", () => {
-          clearTimeout(timeout); // Clear any existing timeout
-          subMenuList.classList.remove("hidden");
-          anchor.setAttribute("aria-expanded", "true");
-        });
-
-        // Hide submenu on mouseleave with delay
-        subMenu.addEventListener("mouseleave", () => {
-          timeout = setTimeout(() => {
-            subMenuList.classList.add("hidden");
-            anchor.setAttribute("aria-expanded", "false");
-          }, 300); // 300ms delay
-        });
-
-        // Clear the timeout if mouse enters the submenu list
-        subMenuList.addEventListener("mouseenter", () => {
-          clearTimeout(timeout);
-        });
-
-        if (subMenuItems.length > 0) {
-          subMenuItems[subMenuItems.length - 1].addEventListener(
-            "focusout",
-            () => {
-              subMenuList.classList.add("hidden");
-              anchor.setAttribute("aria-expanded", "false");
-            },
-          );
-        }
+    if (subMenuItems.length > 0) {
+      // When focus leaves the last item in the submenu, hide the submenu
+      subMenuItems[subMenuItems.length - 1].addEventListener("blur", () => {
+        subMenuList.classList.add("hidden");
+        anchor.setAttribute("aria-expanded", "false");
       });
     }
   });
 };
 
 // Function 3
+const handleMobileSubMenuAccessibility = () => {
+  const mobileNav = document.getElementById("mobile-nav");
+  const subMenus = mobileNav.querySelectorAll("li.relative");
+
+  subMenus.forEach((subMenu) => {
+    const subMenuToggle = subMenu.querySelector(".submenu-toggle");
+
+    if (subMenuToggle) {
+      subMenuToggle.addEventListener("click", toggleSubMenu);
+      subMenuToggle.addEventListener("keydown", (event) => {
+        // Open submenu on Enter or Space key press
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault(); // Prevent any default action
+          toggleSubMenu(event);
+        }
+      });
+
+      function toggleSubMenu(event) {
+        event.preventDefault();
+        const subMenuList = subMenu.querySelector("ul");
+        if (subMenuList.classList.contains("hidden")) {
+          subMenuList.classList.remove("hidden");
+          subMenuToggle.setAttribute("aria-expanded", "true");
+        } else {
+          subMenuList.classList.add("hidden");
+          subMenuToggle.setAttribute("aria-expanded", "false");
+        }
+      }
+    }
+  });
+};
+
+// Function 4
 const mobileMenuToggle = () => {
   // Get the hamburger button and the mobile navigation menu
   const hamburgerButton = document.querySelector("#menu-toggle");
@@ -101,6 +103,8 @@ const mobileMenuToggle = () => {
   if (hamburgerButton && mobileNavUL) {
     // Make sure the elements exist
     hamburgerButton.addEventListener("click", () => {
+      // Toggle open class for transforming the hamburger menu into a cross
+      hamburgerButton.classList.toggle("open");
       if (mobileNavUL.classList.contains("hidden")) {
         mobileNavUL.classList.remove("hidden");
         mobileNavUL.classList.add("slide-down");
@@ -118,7 +122,7 @@ const mobileMenuToggle = () => {
   }
 };
 
-// Function 4
+// Function 5
 const handleNavigation = () => {
   document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll("[data-route]");
@@ -143,7 +147,8 @@ const handleNavigation = () => {
 
 export {
   setActiveLink,
-  handleSubMenuAccessibility,
+  handleDesktopSubMenuAccessibility,
+  handleMobileSubMenuAccessibility,
   mobileMenuToggle,
   handleNavigation,
 };

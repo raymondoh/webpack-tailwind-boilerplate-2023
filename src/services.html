@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body class="antialiased selection:bg-sky-300 selection:text-white">
-    
-    <!-- Main Header Container -->
-    <body class="antialiased selection:bg-sky-300 selection:text-white bg-white">
+  <body class="antialiased selection:bg-sky-300 selection:text-white bg-white">
   
       <header class="sticky z-50 top-0 bg-gray-800 text-white md:pr-14 md:pt-5 md:pb-6">
         <div class="flex justify-between items-center">
@@ -25,16 +22,21 @@
             <!-- Desktop Navigation -->
             <nav id="desktop-nav" class="hidden md:flex flex-col justify-center" aria-label="Desktop navigation">
               <div class="text-sm mb-1 p-4">
-                Slogan goes here
+                Mental Health Solicitors
               </div>
               <ul class="flex uppercase">
                 <li><a href="/" class="p-4 text-white hover:text-green-500" data-route="home">Home</a></li>
                 <li><a href="about.html" class="p-4 text-white hover:text-green-500" data-route="about">About</a></li>
+                <!-- services -->
                 <li class="relative group">
-                  <a href="services.html" class="p-4 text-white hover:text-green-500" aria-haspopup="true" aria-expanded="false">Services</a>
-                  <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white text-black group-hover:block" role="menu">
-                    <li><a href="service-1.html" class="block p-2 text-white hover:text-green-500" tabindex="0" role="menuitem">Sub link 1</a></li>
-                    <li><a href="#" class="block p-2 text-white hover:text-green-500" tabindex="0" role="menuitem">Sub link 2</a></li>
+                  <a href="services.html" class="p-4 text-white hover:text-green-500" aria-haspopup="true" aria-expanded="false">Services
+                    <svg class="inline h-4 w-4 ml-2 text-red-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"></path>
+                    </svg>
+                  </a>
+                  <ul class="absolute left-0 hidden mt-2 space-y-2 bg-pink-500 group-hover:block" role="menu">
+                    <li><a href="service-1.html" class="block p-2 text-white hover:text-green-500 transition-colors duration-100 ease-in-out" tabindex="0" role="menuitem">Sub link 1</a></li>
+                    <li><a href="service-1.html" class="block p-2 text-white hover:text-green-500 transition-colors duration-100 ease-in-out" tabindex="0" role="menuitem">Sub link 2</a></li>
                   </ul>
                 </li>
               </ul>
@@ -63,9 +65,17 @@
           <ul id="menu" class="hidden space-y-4 h-screen bg-gray-800">
             <li class="slide-up-links"><a href="/" class="animate-slide-up-linksblock p-4 hover:text-red-500" data-route="home">Home</a></li>
             <li class="slide-up-links"><a href="about.html" class="block p-4 hover:text-red-500" data-route="about">About</a></li>
+            <!-- services -->
             <li class="relative group slide-up-links">
-              <a href="services.html" class="block p-4" aria-haspopup="true" aria-expanded="false">Services</a>
-              <ul class="absolute left-0 hidden mt-2 space-y-2 bg-white text-black group-hover:block">
+              <a href="services.html" class="block p-4" aria-haspopup="true" aria-expanded="false" tabindex="0">Services
+                <span class="submenu-toggle" tabindex="0">
+                  <svg class="inline h-4 w-4 tex-red-500 bg-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"></path>
+                  </svg>
+                </span>
+                
+              </a>
+              <ul class="submenu absolute left-0 hidden mt-2 space-y-2 bg-pink-500 group-hover:block">
                 <li><a href="service-1.html" class="block p-2 hover:text-red-500">Sub link 1</a></li>
                 <li><a href="#" class="block p-2 hover:text-red-500">Sub link 2</a></li>
               </ul>
@@ -73,144 +83,16 @@
           </ul>
         </nav>
       </header>
-    <!-- MAIN -->
-    <div class="navbar bg-base-100">
-      <div class="navbar-start">
-        <div class="dropdown">
-          <label tabindex="0" class="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-          </label>
-          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-            <li><a>Item 1</a></li>
-            <li>
-              <a>Parent</a>
-              <ul class="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </li>
-            <li><a>Item 3</a></li>
-          </ul>
-        </div>
-        <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
-      </div>
-    <main class="">
-     
-        <!-- Hero -->
-        <div class="bg-gray-600">
-          <div class="bg-gradient-to-b from-gray-600/[.15] via-transparent">
-            <div
-              class="mx-auto max-w-[85rem] space-y-8 px-4 py-24 sm:px-6 lg:px-8"
-            >
-              <!-- Announcement Banner -->
-              <div class="flex justify-center">
-                <a
-                  class="group inline-block rounded-full border border-white/[.05] bg-white/[.05] p-1 pl-4 shadow-md hover:bg-white/[.1]"
-                  href="../figma.html"
-                >
-                  <p class="mr-2 inline-block text-sm text-white">
-                    Preline UI Figma is live.
-                  </p>
-                  <span
-                    class="inline-flex items-center justify-center gap-x-2 rounded-full bg-white/[.075] px-3 py-2 text-sm font-semibold text-white group-hover:bg-white/[.1]"
-                  >
-                    <svg
-                      class="h-2.5 w-2.5"
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                    >
-                      <path
-                        d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                      />
-                    </svg>
-                  </span>
-                </a>
-              </div>
-              <!-- End Announcement Banner -->
-
-              <!-- Title -->
-              <div class="mx-auto max-w-3xl text-center">
-                <h1
-                  class="block text-4xl font-medium text-white sm:text-5xl md:text-6xl lg:text-7xl"
-                >
-                  h1 heading goes here in bold?
-                </h1>
-              </div>
-              <!-- End Title -->
-
-              <div class="mx-auto max-w-3xl text-center">
-                <p class="text-lg text-white">
-                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae aliquam, nemo impedit excepturi laborum vitae.
-                </p>
-              </div>
-
-              <!-- Buttons -->
-              <div class="text-center">
-                <a
-                  class="inline-flex items-center justify-center gap-x-3 rounded-full border border-transparent  bg-teal-700 px-6 py-3 text-center text-sm font-medium text-white shadow-lg shadow-transparent hover:shadow-teal-700/50 focus:outline-none focus:ring-2 focus:ring-teal-600 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-800"
-                  href="#"
-                >
-                  Get started
-                  <svg
-                    class="h-2.5 w-2.5"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                  >
-                    <path
-                      d="M5.27921 2L10.9257 7.64645C11.1209 7.84171 11.1209 8.15829 10.9257 8.35355L5.27921 14"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-              <!-- End Buttons -->
-            </div>
-          </div>
-        </div>
-        <!-- End Hero -->
-      </section>
-      <!-- section -->
-
 
       <!-- MAIN -->
-      <main>
-        <p class="text-4xl text-bold text-slate-500">Services page</p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet soluta quis, iure doloribus numquam temporibus incidunt. Nesciunt error eos quod illum soluta consequuntur maxime, eum ut fugiat in exercitationem. Ipsa unde rerum veritatis reprehenderit facere nihil nisi provident cupiditate, quia tempore deserunt! Consectetur voluptas velit cum exercitationem, maxime atque mollitia accusamus, eos pariatur officiis nobis error neque ipsam! Fugit odio consectetur accusantium! Iusto blanditiis possimus itaque. Corporis perferendis praesentium, nulla amet accusamus, distinctio molestiae illum in tempore voluptas saepe nihil, ex eum corrupti facilis temporibus aliquam? Impedit maxime quidem pariatur dicta molestias optio quaerat in eveniet alias assumenda, similique delectus ullam aut, mollitia odio eaque. Impedit modi quaerat error neque ipsum praesentium. Accusantium perferendis minima officia earum. Facere libero quos delectus tempora, hic quidem corrupti suscipit assumenda aliquid deserunt laboriosam fugiat minima impedit molestias! Commodi harum numquam optio et, quo consectetur minus unde voluptatum maiores accusantium nemo nesciunt placeat voluptatem. Pariatur deleniti explicabo eum error voluptate id sapiente dolor eaque sed illum similique nulla laboriosam quisquam soluta accusantium distinctio asperiores eveniet aspernatur rerum magni perferendis molestias eius, blanditiis deserunt. Dolorem labore incidunt natus, quod sequi ab quisquam nam, esse corrupti ex officia eum asperiores iure provident maiores, ratione repudiandae? Eum?
-        </p>
-      </main>
-
-<section class="bg-center bg-no-repeat bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-white bg-blend-multiply">
-  <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">H1 heading goes here</h1>
-      <p class="mb-8 text-lg font-normal text-white lg:text-xl sm:px-16 lg:px-48">sub text goes right here.</p>
-      <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-          <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:ring-teal-300 dark:focus:ring-teal-900">
-              Get started
-              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-          </a>
-          <a href="#" class="inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400">
-              Learn more
-          </a>  
+      <div>
+        <h1 class="text-4xl text-red font-bold">Services Page</h1>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde ut eaque aspernatur nobis, eligendi modi quasi, molestiae mollitia reiciendis, corrupti ipsum possimus reprehenderit rem nemo repellat repudiandae. Illum qui quasi saepe alias. Voluptatem magni reprehenderit soluta totam provident ipsum culpa officiis libero nobis. Eius debitis, ipsum quidem nemo minima culpa ex voluptatum porro, quasi voluptates ipsa ut laudantium soluta possimus esse officia dolore incidunt adipisci, a repudiandae nobis deserunt perferendis reprehenderit est? Aliquid repellat placeat praesentium, tempore est minima minus dolore sint corrupti at beatae dolorem error fugit nam voluptas ratione mollitia atque quod, vel consequatur molestiae quibusdam. Aut, pariatur? Similique maiores commodi aspernatur ex molestiae. Illo illum amet obcaecati veritatis, dicta ea. Quo reiciendis earum pariatur, dolores vitae architecto perspiciatis totam quas voluptatem, voluptates est placeat! Nulla dolorum omnis ipsam corporis fugit. Voluptatem quo sint at iste eius quos ipsa! Id nesciunt facilis voluptate! Atque neque asperiores adipisci alias cum quisquam repellat? Quis veniam voluptatem veritatis quas corrupti laudantium reiciendis deserunt eos quaerat sequi suscipit, accusamus praesentium incidunt placeat perspiciatis quam cum labore in quae enim est, iure nihil cumque alias! Pariatur, illum similique fugit laborum, sunt quo ad nemo perspiciatis error repellat numquam temporibus magnam, quam officiis doloremque laudantium debitis totam doloribus molestias. Vel reiciendis eos repellat laboriosam dolor. Reiciendis, quia atque. Molestiae dolor rem non vero iusto consequuntur deserunt culpa? A quae cumque optio accusantium mollitia vitae quidem, vel rem laudantium corporis voluptatibus soluta atque, magni earum libero quos sit reprehenderit, facere illum id! Iusto similique ducimus quaerat ab fugit laborum mollitia! Optio fugiat aspernatur assumenda, quis ut hic beatae natus doloribus alias quo consequuntur voluptatum maiores labore! Ut quis placeat consequatur voluptatum repudiandae iusto quasi iure deserunt tenetur! Deleniti accusantium ab velit, facere praesentium delectus quia officia neque. Eligendi accusantium mollitia, ex voluptatibus autem itaque eos.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem quaerat nemo laudantium quasi, reprehenderit voluptate officiis temporibus vero cumque et consectetur inventore officia deserunt! Commodi qui quisquam natus eos asperiores nihil nam, veritatis, fugiat consectetur corporis sed dolores at perferendis, facilis explicabo distinctio in quasi rerum aliquid voluptates culpa optio veniam! Illo amet reprehenderit aut iusto id repudiandae provident 
       </div>
-  </div>
-</section>
-<section>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut numquam voluptatem soluta excepturi enim pariatur, nihil corporis nemo odio aspernatur, itaque iste aliquid tempora veniam quibusdam. Distinctio provident molestias ratione possimus. Minus velit ab accusantium corporis magni quis quidem provident corrupti a dolorem maiores nihil, culpa sunt voluptas. Odio ipsam tempore deleniti saepe inventore ipsum nulla magni quisquam doloremque id iusto praesentium molestias deserunt, culpa esse maxime quibusdam! Esse numquam, hic, recusandae reiciendis eveniet sed perspiciatis at et voluptatem eligendi ratione autem fugit corporis alias. Fugiat beatae accusantium dicta, quasi error reprehenderit quas et vel! Eos consequuntur eligendi vitae nemo.</section>
-     
-      
-    </main>
-    <!-- FOOTER -->
+
+
+        <!-- FOOTER -->
     <footer class="bg-gray-800 text-white relative">
       <div class="container mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:pt-20">
         <!-- Grid -->
@@ -388,28 +270,27 @@
         <img src="./images/logo-1.svg" alt="Background Logo" class="h-[200px] w-[200px]"/>
       </div> -->
     </footer>
-    
 
 
-    <!-- SCROLL-TO-TOP BTN -->
-    <button
-      id="scrollToTop"
-      class="fixed bottom-10 right-10 z-20 hidden rounded-full bg-teal-500 p-4 text-white opacity-90"
+      <!-- SCROLL-TO-TOP BTN -->
+     <button
+    id="scrollToTop"
+    class="fixed bottom-10 right-10 z-20 hidden rounded-full bg-teal-500 p-4 text-white opacity-90"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="h-6 w-6"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="h-6 w-6"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"
-        />
-      </svg>
-    </button>
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"
+      />
+    </svg>
+  </button> 
   </body>
 </html>

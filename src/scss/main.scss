@@ -266,6 +266,12 @@ label {
   }
 }
 
+.slide-down {
+  animation: slide-down 0.5s ease-in-out forwards;
+}
+
+// /* SLIDE UP ANIMATION  */
+
 @keyframes slide-up {
   0% {
     transform: translateY(0);
@@ -275,19 +281,16 @@ label {
   }
 }
 
-.slide-down {
-  animation: slide-down 0.5s ease-in-out forwards;
-}
-
 .slide-up {
   animation: slide-up 0.5s ease-in-out forwards;
 }
+
 #mobile-nav ul {
   @apply duration-200 ease-in-out;
   transition-property: background-color;
 }
 
-// /* SLIDE UP LINKS  */
+/* SLIDE UP LINKS  */
 @keyframes slide-up-links {
   0% {
     transform: translateY(100%);
@@ -299,11 +302,36 @@ label {
   }
 }
 .animate-slide-up-links {
-  animation: slide-up-links 0.9s ease-in-out forwards;
+  animation: slide-up-links 0.5s ease-in-out forwards;
 }
 #mobile-nav ul li {
-  animation: slide-up-links 0.9s ease-in-out forwards;
+  animation: slide-up-links 1.5s ease-in-out forwards;
 }
-// .backface-hidden {
-//   backface-visibility: hidden;
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Your existing CSS styles */
+/* Add these new classes */
+.submenu-mobile-open {
+  position: static !important;
+}
+.submenu-mobile-open > ul {
+  position: relative !important;
+}
+
+.submenu-hidden {
+  display: none !important;
+}
+
+/* When hovering over either the a tag or the li element */
+// li.group:hover .arrow-down,
+// li.group:hover .arrow-up {
+//   display: none;
+// }
+
+// li.group:hover .arrow-up,
+// li.group .arrow-down {
+//   display: inline;
 // }

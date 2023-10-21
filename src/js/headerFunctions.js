@@ -71,23 +71,91 @@ const handleMobileSubMenuAccessibility = () => {
     if (subMenuToggle) {
       subMenuToggle.addEventListener("click", toggleSubMenu);
       subMenuToggle.addEventListener("keydown", (event) => {
-        // Open submenu on Enter or Space key press
         if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault(); // Prevent any default action
+          event.preventDefault();
           toggleSubMenu(event);
         }
       });
 
+      // function toggleSubMenu(event) {
+      //   console.log("Toggling submenu...");
+      //   event.preventDefault();
+      //   const subMenuList = subMenu.querySelector("ul");
+      //   const arrowDown = subMenu.querySelector(".arrow-down");
+      //   const arrowUp = subMenu.querySelector(".arrow-up");
+      //   console.log(subMenuList, arrowDown, arrowUp);
+
+      //   if (subMenuList.classList.contains("hidden")) {
+      //     // Show submenu
+      //     console.log("Showing submenu");
+      //     subMenuList.classList.remove("hidden");
+      //     subMenu.classList.add("submenu-mobile-open");
+      //     // Switch to arrow up
+      //     arrowDown.classList.add("hidden");
+      //     arrowUp.classList.remove("hidden");
+      //     // Update ARIA attributes
+      //     subMenuToggle.setAttribute("aria-expanded", "true");
+      //   } else {
+      //     // Hide submenu
+      //     console.log("Hiding submenu");
+      //     subMenuList.classList.add("hidden");
+      //     subMenu.classList.remove("submenu-mobile-open");
+      //     // Switch to arrow down
+      //     arrowDown.classList.remove("hidden");
+      //     arrowUp.classList.add("hidden");
+      //     // Update ARIA attributes
+      //     subMenuToggle.setAttribute("aria-expanded", "false");
+      //   }
+      // }
+      // function toggleSubMenu(event) {
+      //   console.log("Toggling submenu...");
+      //   event.preventDefault();
+      //   const subMenuList = subMenu.querySelector("ul");
+      //   const arrowDown = subMenu.querySelector(".arrow-down");
+      //   const arrowUp = subMenu.querySelector(".arrow-up");
+      //   console.log(subMenuList, arrowDown, arrowUp);
+
+      //   if (subMenuList.classList.contains("submenu-hidden")) {
+      //     // Show submenu
+      //     console.log("Showing submenu");
+      //     subMenuList.classList.remove("submenu-hidden");
+      //     subMenu.classList.add("submenu-mobile-open");
+      //     // Switch to arrow up
+      //     arrowDown.classList.add("submenu-hidden");
+      //     arrowUp.classList.remove("submenu-hidden");
+      //     // Update ARIA attributes
+      //     subMenuToggle.setAttribute("aria-expanded", "true");
+      //   } else {
+      //     // Hide submenu
+      //     console.log("Hiding submenu");
+      //     subMenuList.classList.add("submenu-hidden");
+      //     subMenu.classList.remove("submenu-mobile-open");
+      //     // Switch to arrow down
+      //     arrowDown.classList.remove("submenu-hidden");
+      //     arrowUp.classList.add("submenu-hidden");
+      //     // Update ARIA attributes
+      //     subMenuToggle.setAttribute("aria-expanded", "false");
+      //   }
+      // }
+
       function toggleSubMenu(event) {
         event.preventDefault();
         const subMenuList = subMenu.querySelector("ul");
-        if (subMenuList.classList.contains("hidden")) {
-          subMenuList.classList.remove("hidden");
-          subMenuToggle.setAttribute("aria-expanded", "true");
-        } else {
-          subMenuList.classList.add("hidden");
-          subMenuToggle.setAttribute("aria-expanded", "false");
-        }
+        const arrowDown = subMenu.querySelector(".arrow-down");
+        const arrowUp = subMenu.querySelector(".arrow-up");
+
+        const isHidden = subMenuList.classList.contains("submenu-hidden");
+
+        subMenuList.classList.toggle("submenu-hidden", !isHidden);
+        subMenu.classList.toggle("submenu-mobile-open", !isHidden);
+
+        arrowDown.classList.toggle("submenu-hidden", !isHidden);
+        arrowUp.classList.toggle("submenu-hidden", isHidden);
+
+        subMenuToggle.setAttribute(
+          "aria-expanded",
+          !isHidden ? "true" : "false",
+        );
       }
     }
   });
@@ -95,28 +163,18 @@ const handleMobileSubMenuAccessibility = () => {
 
 // Function 4
 const mobileMenuToggle = () => {
-  // Get the hamburger button and the mobile navigation menu
   const hamburgerButton = document.querySelector("#menu-toggle");
   const mobileNav = document.querySelector("#mobile-nav");
-  const mobileNavUL = mobileNav ? mobileNav.querySelector("ul") : null; // Get the <ul> inside the mobileNav
+  const mobileNavUL = mobileNav ? mobileNav.querySelector("ul") : null;
 
   if (hamburgerButton && mobileNavUL) {
-    // Make sure the elements exist
     hamburgerButton.addEventListener("click", () => {
-      // Toggle open class for transforming the hamburger menu into a cross
       hamburgerButton.classList.toggle("open");
       if (mobileNavUL.classList.contains("hidden")) {
         mobileNavUL.classList.remove("hidden");
         mobileNavUL.classList.add("slide-down");
       } else {
-        mobileNavUL.classList.add("slide-up");
-
-        // Listen for animation to complete
-        mobileNavUL.addEventListener("animationend", function handler() {
-          mobileNavUL.classList.add("hidden");
-          mobileNavUL.classList.remove("slide-up");
-          mobileNavUL.removeEventListener("animationend", handler);
-        });
+        mobileNavUL.classList.add("hidden");
       }
     });
   }

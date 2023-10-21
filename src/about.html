@@ -6,83 +6,90 @@
     <title>Document</title>
   </head>
   <body class="antialiased selection:bg-sky-300 selection:text-white bg-white">
+    <header class="sticky z-50 top-0 bg-gray-800 text-white md:pr-14 md:pt-5 md:pb-6">
+      <div class="flex justify-between items-center">
+        <!-- Logo and Desktop Navigation -->
+        <div class="flex items-end">
+          <div class="p-4">
+            <span class="text-lg font-semibold">
+              <a href="/">
+                <img src="./images/logo-1.svg" alt="logo" class="text-white h-10 md:w-32">
+              </a>
+            </span>
+          </div>
   
-      <header class="sticky z-50 top-0 bg-gray-800 text-white md:pr-14 md:pt-5 md:pb-6">
-        <div class="flex justify-between items-center">
-          <!-- Logo and Desktop Navigation -->
-          <div class="flex items-end">
-            <div class="p-4">
-              <span class="text-lg font-semibold">
-                <a href="/">
-                  <img src="./images/logo-1.svg" alt="logo" class="text-white h-10 md:w-32">
-                </a>
-              </span>
+          <!-- Desktop Navigation -->
+          <nav id="desktop-nav" class="hidden md:flex flex-col justify-center" aria-label="Desktop navigation">
+            <div class="text-sm mb-1 p-4">
+              Slogan goes here
             </div>
-    
-            <!-- Desktop Navigation -->
-            <nav id="desktop-nav" class="hidden md:flex flex-col justify-center" aria-label="Desktop navigation">
-              <div class="text-sm mb-1 p-4">
-                Slogan goes here
-              </div>
-              <ul class="flex uppercase">
-                <li><a href="/" class="p-4 text-white hover:text-green-500" data-route="home">Home</a></li>
-                <li><a href="about.html" class="p-4 text-white hover:text-green-500" data-route="about">About</a></li>
-                <!-- services -->
-                <li class="relative group">
-                  <a href="services.html" class="p-4 text-white hover:text-green-500" aria-haspopup="true" aria-expanded="false">Services
-                    <svg class="inline h-4 w-4 ml-2 text-red-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"></path>
-                    </svg>
-                  </a>
-                  <ul class="absolute left-0 hidden mt-2 space-y-2 bg-pink-500 group-hover:block" role="menu">
-                    <li><a href="service-1.html" class="block p-2 text-white hover:text-green-500 transition-colors duration-100 ease-in-out" tabindex="0" role="menuitem">Sub link 1</a></li>
-                    <li><a href="service-1.html" class="block p-2 text-white hover:text-green-500 transition-colors duration-100 ease-in-out" tabindex="0" role="menuitem">Sub link 2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
+            <ul class="flex uppercase">
+              <li><a href="/" class="p-4 text-white hover:text-green-500" data-route="home">Home</a></li>
             
-          </div>
-    
-          <!-- Container for mobile navigation toggle -->
-          <div id="mobile-nav-container" class="flex items-center relative mr-5">
-            <button id="menu-toggle" class="p-4 md:hidden absolute right-0 top-1/2 transform -translate-y-1/2">
-              <span class="hamburger-top"></span>
-              <span class="hamburger-middle"></span>
-              <span class="hamburger-bottom"></span>
-            </button>
-          </div>
-    
-            <!-- Desktop Call to Action -->
-            <button class="hidden p-4 h-16 w-44 bg-teal-500 rounded md:block self-auto">
-              Call to Action
-            </button>
+              <!-- services -->
+              <li class="relative group">
+                <a href="services.html" class="p-4 text-white hover:text-green-500" aria-haspopup="true" aria-expanded="false">Services
+                  <svg class="inline h-4 w-4 ml-2 text-red-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"></path>
+                  </svg>
+                </a>
+                <ul class="absolute left-0 hidden mt-2 space-y-2 bg-pink-500 group-hover:block" role="menu">
+                  <li><a href="service-1.html" class="block p-2 text-white hover:text-green-500 transition-colors duration-100 ease-in-out" tabindex="0" role="menuitem">Sub link 1</a></li>
+                  <li><a href="service-1.html" class="block p-2 text-white hover:text-green-500 transition-colors duration-100 ease-in-out" tabindex="0" role="menuitem">Sub link 2</a></li>
+                </ul>
+              </li>
+              <li><a href="about.html" class="p-4 text-white hover:text-green-500" data-route="about">About</a></li>
+            </ul>
+          </nav>
+          
         </div>
+  
+        <!-- Container for mobile navigation toggle -->
+        <div id="mobile-nav-container" class="flex items-center relative mr-5">
+          <button id="menu-toggle" class="p-4 md:hidden absolute right-0 top-1/2 transform -translate-y-1/2">
+            <span class="hamburger-top"></span>
+            <span class="hamburger-middle"></span>
+            <span class="hamburger-bottom"></span>
+          </button>
         </div>
-    
+  
+          <!-- Desktop Call to Action -->
+          <button class="hidden p-4 h-16 w-44 bg-teal-500 rounded md:block self-auto">
+            Call to Action
+          </button>
+      </div>
+      </div>
         <!-- Mobile Navigation Links -->
         <nav id="mobile-nav" class="md:hidden z-20" aria-label="Mobile navigation">
           <ul id="menu" class="hidden space-y-4 h-screen bg-gray-800">
-            <li class="slide-up-links"><a href="/" class="animate-slide-up-linksblock p-4 hover:text-red-500" data-route="home">Home</a></li>
-            <li class="slide-up-links"><a href="about.html" class="block p-4 hover:text-red-500" data-route="about">About</a></li>
+            <li><a href="/" class="block p-4 hover:text-red-500" data-route="home">Home</a></li>
+          
             <!-- services -->
-            <li class="relative group slide-up-links">
+            <li class="relative group">
               <a href="services.html" class="block p-4" aria-haspopup="true" aria-expanded="false" tabindex="0">Services
                 <span class="submenu-toggle" tabindex="0">
-                  <svg class="inline h-4 w-4 tex-red-500 bg-green-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6.293 9.293a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"></path>
+                  <!-- Arrow Down SVG -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="arrow-down  inline h-6 w-6 tex-red-500 bg-green-400"  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>
-                </span>
-                
+                  <!-- Arrow Up SVG (hidden initially) -->
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow-up inline h-8 w-8 tex-red-500 bg-green-400 submenu-hidden"  fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                </svg>
+              </span>
               </a>
-              <ul class="submenu absolute left-0 hidden mt-2 space-y-2 bg-pink-500 group-hover:block">
+              <ul class="submenu submenu-hidden left-0 mt-2 space-y-2 bg-pink-500 group-hover:block">
                 <li><a href="service-1.html" class="block p-2 hover:text-red-500">Sub link 1</a></li>
                 <li><a href="#" class="block p-2 hover:text-red-500">Sub link 2</a></li>
               </ul>
             </li>
+            <li><a href="about.html" class="block p-4 hover:text-red-500" data-route="about">About</a></li>
+            <li><a href="contact.html" class="block p-4 hover:text-red-500" data-route="about">Contact</a></li>
           </ul>
-        </nav>
-      </header>
+        </nav> 
+    </header>
+     
 
       <!-- MAIN -->
       <div>

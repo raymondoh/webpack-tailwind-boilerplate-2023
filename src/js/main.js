@@ -1,5 +1,6 @@
 // Import your main SCSS file
 import "../scss/main.scss";
+import initializeSwiper from "./swiperSetup.js";
 
 import {
   setActiveLink,
@@ -19,4 +20,5 @@ document.addEventListener("DOMContentLoaded", () => {
   mobileMenuToggle();
   handleNavigation();
   initializeScroll();
+  initializeSwiper();
 });

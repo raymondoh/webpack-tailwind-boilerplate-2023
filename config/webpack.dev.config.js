@@ -2,7 +2,7 @@ const { merge } = require("webpack-merge");
 const commonConfig = require("./webpack.config");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const browserSyncConfig = require("./browserSync.config");
-
+const DashboardPlugin = require("webpack-dashboard/plugin");
 const environment = require("./environment");
 
 module.exports = merge(commonConfig, {
@@ -12,6 +12,7 @@ module.exports = merge(commonConfig, {
   plugins: [
     // ...
     new BrowserSyncPlugin(browserSyncConfig),
+    new DashboardPlugin(),
   ],
 
   // devServer: {
